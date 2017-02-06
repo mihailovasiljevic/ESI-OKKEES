@@ -1,0 +1,19 @@
+CREATE TABLE `esi-oikkes`.`dumping_property` (
+  `id` INT NOT NULL,
+  `naziv` VARCHAR(80) NOT NULL,
+  `vrednost` DECIMAL(10,4) NOT NULL,
+  `timestamp` DATETIME NOT NULL,
+  PRIMARY KEY (`id`));
+  
+  
+CREATE TABLE `esi-oikkes`.`system_configuration` (
+  `id` INT NOT NULL,
+  `deadband` INT NOT NULL,
+  `state` INT NOT NULL,
+  `pMin` DECIMAL(10,4) NOT NULL,
+  `pMax` DECIMAL(10,4) NOT NULL,
+  PRIMARY KEY (`id`));
+  
+INSERT INTO `esi-oikkes`.`dumping_property` (`id`, `naziv`, `vrednost`, `timestamp`) VALUES ('1', 'ANALOG', '25.1', '2014-02-11');
+
+INSERT INTO `esi-oikkes`.`system_configuration` (`id`, `deadband`, `state`, `pMin`, `pMax`) VALUES ('1', '6', '0', '1.4', '30.5');

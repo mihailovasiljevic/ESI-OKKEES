@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CDFFBB70-5DA4-49BC-9164-32CE09280565}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\..\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BufferClientTests\ClientTest.cs" />
+    <Compile Include="BufferClientTests\RealFactoryTest.cs" />
+    <Compile Include="BufferServiceTests\BufferModelTest.cs" />
+    <Compile Include="BufferServiceTests\BufferServiceClientContractTest.cs" />
+    <Compile Include="BufferServiceTests\CallbackHandlerTest.cs" />
+    <Compile Include="BufferServiceTests\Duplex\CallbackHandlerTest.cs" />
+    <Compile Include="BufferServiceTests\HostTest.cs" />
+    <Compile Include="BufferServiceTests\State\LocalStateTest.cs" />
+    <Compile Include="BufferServiceTests\State\RemoteStateTest.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Connection\ConnectionTest.cs" />
+    <Compile Include="Connection\DBRepositoryTest.cs" />
+    <Compile Include="Model\CollectionDescriptionTest.cs" />
+    <Compile Include="Model\DataSetsTest.cs" />
+    <Compile Include="Model\DataSetTest.cs" />
+    <Compile Include="Model\DeltaCDTest.cs" />
+    <Compile Include="Model\DumpingPropertyCollectionTest.cs" />
+    <Compile Include="Model\DumpingPropertyTest.cs" />
+    <Compile Include="Model\SystemConfigurationTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BufferClient\BufferClient.csproj">
+      <Project>{8f30c7f4-cf90-4284-a04e-624ed67d02bc}</Project>
+      <Name>BufferClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BufferService\BufferService.csproj">
+      <Project>{11547a05-0d40-4790-8152-eb614ad35085}</Project>
+      <Name>BufferService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{c9b1e152-d3eb-48fa-8510-0fff2f96da18}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Connection\Connection.csproj">
+      <Project>{906207be-a329-4ba7-b6cc-c6024eddb0dd}</Project>
+      <Name>Connection</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
